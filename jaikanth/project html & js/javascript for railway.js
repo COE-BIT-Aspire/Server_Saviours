@@ -9,8 +9,11 @@ class Login {
     event.preventDefault();
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-    if (username === "admin" && password === "admin123") {
+    if (username === "user" && password === "user123") {
       window.location.href = "railway reservation.html";
+    }
+    else if (username === "admin" && password === "admin123") {
+      window.location.href = "admin.html";
     } else {
       this.errorMessage.innerText = "Invalid username or password.";
     }
