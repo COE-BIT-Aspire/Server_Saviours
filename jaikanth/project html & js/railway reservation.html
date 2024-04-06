@@ -7,14 +7,24 @@
   <style>
     body {
       font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
     }
     .container {
       width: 80%;
       margin: 0 auto;
       padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
     h1 {
       text-align: center;
+      color: #333;
+    }
+    h2 {
+      color: #555;
     }
     table {
       width: 100%;
@@ -22,9 +32,10 @@
       margin-top: 20px;
     }
     th, td {
-      padding: 8px;
+      padding: 12px;
       text-align: left;
       border-bottom: 1px solid #ddd;
+      color: #666;
     }
     th {
       background-color: #f2f2f2;
@@ -35,8 +46,29 @@
     .ticket-details {
       display: none;
       border: 1px solid #ddd;
-      padding: 10px;
+      padding: 20px;
       margin-top: 20px;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+    .ticket-details p {
+      margin: 8px 0;
+    }
+    .ticket-details h2 {
+      color: #333;
+      margin-bottom: 16px;
+    }
+    .book-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    .book-button:hover {
+      background-color: #45a049;
     }
   </style>
 </head>
@@ -52,7 +84,7 @@
           <th>Departure Time</th>
           <th>Arrival Time</th>
           <th>Price</th>
-          <th>Book</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -62,7 +94,7 @@
           <td>08:00 AM</td>
           <td>04:00 PM</td>
           <td>$50</td>
-          <td><button onclick="showTicket(12345)">Book Now</button></td>
+          <td><button class="book-button" onclick="showTicket(12345)">Book Now</button></td>
         </tr>
         <tr>
           <td>12345</td>
@@ -70,7 +102,7 @@
           <td>08:00 AM</td>
           <td>04:00 PM</td>
           <td>$50</td>
-          <td><button onclick="showTicket(12345)">Book Now</button></td>
+          <td><button class="book-button" onclick="showTicket(12345)">Book Now</button></td>
         </tr>
         <tr>
           <td>12345</td>
@@ -78,7 +110,7 @@
           <td>08:00 AM</td>
           <td>04:00 PM</td>
           <td>$50</td>
-          <td><button onclick="showTicket(12345)">Book Now</button></td>
+          <td><button class="book-button" onclick="showTicket(12345)">Book Now</button></td>
         </tr>
         <tr>
           <td>12345</td>
@@ -86,8 +118,9 @@
           <td>08:00 AM</td>
           <td>04:00 PM</td>
           <td>$50</td>
-          <td><button onclick="showTicket(12345)">Book Now</button></td>
+          <td><button class="book-button" onclick="showTicket(12345)">Book Now</button></td>
         </tr>
+
       </tbody>
     </table>
 
@@ -106,7 +139,6 @@
         <p><strong>Departure Time:</strong> ${trainDetails.departure}</p>
         <p><strong>Arrival Time:</strong> ${trainDetails.arrival}</p>
         <p><strong>Price:</strong> ${trainDetails.price}</p>
-        <!-- Add more ticket details here -->
       `;
 
       document.getElementById('ticketDetails').innerHTML = ticketHTML;
