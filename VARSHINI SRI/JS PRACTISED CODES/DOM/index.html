@@ -1,0 +1,27 @@
+<h1 id = "1">Hello World</h1>
+<button onclick = "change()">Change</button>
+<script>
+    var heading = document.getElementById("1")
+    console.log(heading.textContent)
+
+    function change(){
+        heading.textContent = "Bye World"
+    }
+</script>
+<br>
+<br>
+<input id = "num1">
+<input id = "num2">
+<button onclick = "add()">Add</button>
+<p id = "res">Result</p>
+<script>
+    var inputBox1 = document.getElementById("num1")
+    var inputBox2 = document.getElementById("num2")
+    var para = document.getElementById("res")
+    function add(){
+        var inputBox1val = Number(inputBox1.value)
+        var inputBox2val = Number(inputBox2.value)
+        var total = inputBox1val + inputBox2val
+        para.textContent = total
+    }
+</script>
