@@ -1,45 +1,39 @@
  class AspireEmployee{
-     empId: number;
      empName: string;
      constructor(){
-         this.empId = 1;
          this.empName = "jai";
      }
      display(){
-         console.log(this.empId + " " + this.empName);
+         console.log("Welcome" +" " + this.empName);
      }
  }
  let aspireEmployee = new AspireEmployee();
  aspireEmployee.display();
 
-var sam = ["ana", 3, "one", 3.23, true];
-
 
  class Employee{
-     empId: number;
      empName: string;
-     constructor(empId: number, empName: string){
-         this.empId = empId;
+     constructor(empName: string){
          this.empName = empName;
      }
      show() {
-         console.log(this.empId + " " + this.empName);
+         console.log("Welcome" +" "+ this.empName);
      }
  }
 
  class Manager extends Employee{
-     constructor(empid: number, empname: string){
-         super(empid, empname);
+     constructor(empname: string){
+         super(empname);
      }
  }
 
- let man1 = new Manager(2, "kavin");
+ let man1 = new Manager("jai");
  man1.show();
  
 
-Spread operator
- let arr1 = [ 16,1,14,34];
- let arr2 = [ 42, 53, 66,89];
+
+ let arr1 = [ 1,2,3];
+ let arr2 = [ 4,5,6];
  let copy_arr = [...arr1];
  let new_arr = [...arr1, 72, 83,78];
  let merged_arr = [...arr1, ...arr2];
