@@ -32,6 +32,12 @@
     tr:hover {
       background-color: #f5f5f5;
     }
+    .ticket-details {
+      display: none;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
@@ -56,36 +62,70 @@
           <td>08:00 AM</td>
           <td>04:00 PM</td>
           <td>$50</td>
-          <td><button onclick="bookTicket(12345)">Book Now</button></td>
+          <td><button onclick="showTicket(12345)">Book Now</button></td>
         </tr>
         <tr>
-          <td>22345</td>
+          <td>12345</td>
           <td>Express Train</td>
-          <td>09:00 AM</td>
+          <td>08:00 AM</td>
           <td>04:00 PM</td>
-          <td>$40</td>
-          <td><button onclick="bookTicket(12345)">Book Now</button></td>
-        </tr>
-        <tr>
-          <td>34512</td>
-          <td>Express Train</td>
-          <td>01:00 AM</td>
-          <td>02:00 PM</td>
-          <td>$80</td>
-          <td><button onclick="bookTicket(12345)">Book Now</button></td>
-        </tr>
-        <tr>
-          <td>44445</td>
-          <td>Express Train</td>
-          <td>012:00 AM</td>
-          <td>9:00 PM</td>
           <td>$50</td>
-          <td><button onclick="bookTicket(12345)">Book Now</button></td>
+          <td><button onclick="showTicket(12345)">Book Now</button></td>
+        </tr>
+        <tr>
+          <td>12345</td>
+          <td>Express Train</td>
+          <td>08:00 AM</td>
+          <td>04:00 PM</td>
+          <td>$50</td>
+          <td><button onclick="showTicket(12345)">Book Now</button></td>
+        </tr>
+        <tr>
+          <td>12345</td>
+          <td>Express Train</td>
+          <td>08:00 AM</td>
+          <td>04:00 PM</td>
+          <td>$50</td>
+          <td><button onclick="showTicket(12345)">Book Now</button></td>
         </tr>
       </tbody>
     </table>
+
+    <div class="ticket-details" id="ticketDetails">
+    </div>
   </div>
 
-  <script src="javascript for railway.js"></script>
+  <script>
+    function showTicket(trainNumber) {
+      const trainDetails = getTrainDetails(trainNumber);
+
+      const ticketHTML = `
+        <h2>Ticket Details</h2>
+        <p><strong>Train Number:</strong> ${trainDetails.number}</p>
+        <p><strong>Train Name:</strong> ${trainDetails.name}</p>
+        <p><strong>Departure Time:</strong> ${trainDetails.departure}</p>
+        <p><strong>Arrival Time:</strong> ${trainDetails.arrival}</p>
+        <p><strong>Price:</strong> ${trainDetails.price}</p>
+        <!-- Add more ticket details here -->
+      `;
+
+      document.getElementById('ticketDetails').innerHTML = ticketHTML;
+      document.getElementById('ticketDetails').style.display = 'block';
+    }
+
+    function getTrainDetails(trainNumber) {
+      const trains = {
+        12345: {
+          number: '12345',
+          name: 'Express Train',
+          departure: '08:00 AM',
+          arrival: '04:00 PM',
+          price: '$50'
+        },
+      };
+
+      return trains[trainNumber];
+    }
+  </script>
 </body>
 </html>
