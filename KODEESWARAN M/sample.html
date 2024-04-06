@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+   <head>
+    <title>signup form</title>
+    <style>
+        body{
+            background-color: rgb(210, 237, 246);
+        }
+        h3{
+            background-color: rgb(180, 201, 255);
+            padding: 6px;
+            border-radius: 4px;
+        }
+        input{
+            padding: 6px;
+            margin-top: 6px;
+        }
+        .main-div{
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            justify-content:center ;
+            align-items: center;
+            background-color: white;
+            border: 1px solid rgba(181, 39, 3, 0.5);
+            box-shadow: 3px 3px 3px rgba(181, 39, 3, 0.3);
+            margin: 150px;
+        }  
+       button{
+        background-color:  rgb(180, 201, 255);
+            padding: 8px 6px;
+            border: none;
+            border-radius: 4px;
+            width:186px;
+            margin-bottom: 20px;
+            font-weight: bold;
+       }
+       button:hover{
+        background-color:  rgb(152, 182, 255);
+        cursor: pointer;
+       }
+       button:active{
+        background-color:  rgb(119, 157, 255);
+       }
+
+    </style>
+   </head>
+   <body>
+    
+       
+   
+        <div class="main-div">
+            
+        
+                <h3>Signup Form</h3>
+                <form>
+                    <lable>First Name</lable><br>
+                    <input type="text" placeholder="Eg:Ajay" required><br><br>
+                    <lable>Last Name</lable><br>
+                    <input type="text" placeholder="Eg:kumar" required><br><br>
+                    <lable>Mobile Number</lable><br>
+                    <input type="text" placeholder="Eg:+91 9876543210" required><br><br>
+                    <lable>Password</lable><br>
+                    <input type="password" placeholder="Eg:abc@123" required><br><br>
+                    <lable>Confirm Password</lable><br>
+                    <input type="password" placeholder="Eg:abc@123" required><br><br>
+                    <button>Sign Up</button>
+                    
+                </form>
+
+
+        
+        </div>
+    
+   
+
+   </body>
+</html>
