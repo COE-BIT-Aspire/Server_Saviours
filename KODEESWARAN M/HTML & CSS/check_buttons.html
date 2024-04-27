@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+</head>
+<body>
+    <input type="checkbox" id="subscribebtn"><label>SUBSCRIBE</label><br><br>
+    
+    <input type="radio" id="upibtn" name="btn"><label>upi </label>
+    <input type="radio" id="gpaybtn" name="btn"><label>Gpay </label>
+    <input type="radio" id="paytmbtn" name="btn"><label>Paytm </label>
+    <br><br>
+    <button id="mybtn">submit</button>
+    <p id="resultone"></p>
+    <p id="resulttwo"></p>
+
+    <script>
+
+        const subscribebtn=document.getElementById("subscribebtn");
+        const upibtn=document.getElementById("upibtn");
+        const gpaybtn=document.getElementById("gpaybtn");
+        const paytmbtn=document.getElementById("paytmbtn");
+        const mybtn=document.getElementById("mybtn");
+        mybtn.onclick=()=>{
+            if(subscribebtn.checked)
+            document.getElementById("resultone").textContent="subscribed";
+            else
+            document.getElementById("resultone").textContent="not subscribed";
+
+            if(upibtn.checked)
+            document.getElementById("resulttwo").textContent="you selected upi";
+            else if(gpaybtn.checked)
+            document.getElementById("resulttwo").textContent="you selected gpay";
+            else if(paytmbtn.checked)
+            document.getElementById("resulttwo").textContent="you selected paytm";
+            else 
+            document.getElementById("resulttwo").textContent="you must select any one option";
+        }
+
+    </script>
+</body>
+</html>
