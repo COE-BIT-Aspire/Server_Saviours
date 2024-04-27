@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Railway Reservation - Reservation Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    h2 {
+      color: #555;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      color: #666;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+    .ticket-details {
+      display: none;
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+    .ticket-details p {
+      margin: 8px 0;
+    }
+    .ticket-details h2 {
+      color: #333;
+      margin-bottom: 16px;
+    }
+    .book-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    .book-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Railway Reservation</h1>
+    <h2>Available Trains</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Train Number</th>
+          <th>Train Name</th>
+          <th>Departure Time</th>
+          <th>Arrival Time</th>
+          <th>Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>12345</td>
+          <td>Express Train</td>
+          <td>08:00 AM</td>
+          <td>04:00 PM</td>
+          <td>$50</td>
+          <td><button class="book-button" onclick="showTicket(12345)">Book Now</button></td>
+        </tr>
+        <tr>
+          <td>12345</td>
+          <td>Express Train</td>
+          <td>08:00 AM</td>
+          <td>04:00 PM</td>
+          <td>$50</td>
+          <td><button class="book-button" onclick="showTicket(12345)">Book Now</button></td>
+        </tr>
+        <tr>
+          <td>12345</td>
+          <td>Express Train</td>
+          <td>08:00 AM</td>
+          <td>04:00 PM</td>
+          <td>$50</td>
+          <td><button class="book-button" onclick="showTicket(12345)">Book Now</button></td>
+        </tr>
+        <tr>
+          <td>12345</td>
+          <td>Express Train</td>
+          <td>08:00 AM</td>
+          <td>04:00 PM</td>
+          <td>$50</td>
+          <td><button class="book-button" onclick="showTicket(12345)">Book Now</button></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <div class="ticket-details" id="ticketDetails">
+    </div>
+  </div>
+
+  <script>
+    function showTicket(trainNumber) {
+      const trainDetails = getTrainDetails(trainNumber);
+
+      const ticketHTML = `
+        <h2>Ticket Details</h2>
+        <p><strong>Train Number:</strong> ${trainDetails.number}</p>
+        <p><strong>Train Name:</strong> ${trainDetails.name}</p>
+        <p><strong>Departure Time:</strong> ${trainDetails.departure}</p>
+        <p><strong>Arrival Time:</strong> ${trainDetails.arrival}</p>
+        <p><strong>Price:</strong> ${trainDetails.price}</p>
+      `;
+
+      document.getElementById('ticketDetails').innerHTML = ticketHTML;
+      document.getElementById('ticketDetails').style.display = 'block';
+    }
+
+    function getTrainDetails(trainNumber) {
+      const trains = {
+        12345: {
+          number: '12345',
+          name: 'Express Train',
+          departure: '08:00 AM',
+          arrival: '04:00 PM',
+          price: '$50'
+        },
+      };
+
+      return trains[trainNumber];
+    }
+  </script>
+</body>
+</html>
