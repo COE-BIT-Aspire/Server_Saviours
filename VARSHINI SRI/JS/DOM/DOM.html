@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Selection</title>
+</head>
+<body>
+  <div id="container">
+    <h1>Hello, World!</h1>
+    <p class="intro">Welcome to DOM manipulation.</p>
+    <p class="content">This is some content.</p>
+  </div>
+
+  <script>
+    // Selecting elements
+    const heading = document.getElementById('container');
+    const introParagraph = document.querySelector('.intro');
+    const contentParagraphs = document.querySelectorAll('.content');
+
+    // Modifying elements
+    heading.style.backgroundColor = 'lightblue';
+    introParagraph.textContent = 'DOM manipulation made easy!';
+    contentParagraphs.forEach(paragraph => {
+      paragraph.style.fontWeight = 'bold';
+    });
+  </script>
+</body>
+</html>
