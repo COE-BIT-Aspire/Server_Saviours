@@ -1,0 +1,30 @@
+<h1>Welcome to DEMO App</h1>
+
+
+<div class="menu-container">
+    <nav class="component"><a [routerLink]="'home'">Home</a>&nbsp;</nav>
+    <nav class="component"><a [routerLink]="'shop'">Shop</a>&nbsp;</nav>
+    <nav class="component"><a [routerLink]="'productdet'">productsdetail</a>&nbsp;</nav>
+    <nav class="component"><a [routerLink]="'product'">products</a>&nbsp;</nav>
+    <nav class="component"><a [routerLink]="'bank'">Bank Details</a>&nbsp;</nav>
+    <nav class="component"><a [routerLink]="'student'">About Us</a></nav>
+</div>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
+
+{{5|cube}}
+
+{{123456|currency:'INR'}}<br>
+{{678|currency:'USD'}}<br>
+{{title|uppercase}}<br>
+{{doj|date:'fullDate'}}<br>
+{{doj|date:'shortDate'}}<br>
+{{doj|date:'shortTime'}}<br>
+{{doj|date:'fullTime'}}<br>
+{{doj|date:'dd/MM/yyyy'}}<br>
+{{[1,2,3,4,5,6,7,8,9]|slice:4}}<br>
+{{[2,2,5,1,4,8,9,3]|slice:2:5}}<br>
+{{[1,2,3,4,5,6,7,8,9]|slice:2:-1}}<br>
+{{[1,2,3,4,5,6,7,8,9]|slice:2:-2}}<br>
+

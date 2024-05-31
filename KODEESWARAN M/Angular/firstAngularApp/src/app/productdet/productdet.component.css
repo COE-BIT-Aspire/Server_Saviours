@@ -1,0 +1,11 @@
+img{
+    height: 100px;
+    width: 100px;
+}
+
+/* //need to split terminal
+cd firstangularapp
+json-server --watch db.json
+
+cd firstangularapp
+ng s -o */

@@ -1,0 +1,88 @@
+
+    
+<div class="container">
+    <a [routerLink]="'/bank/home'">NextPage</a><br><br>
+
+   
+ </div>
+  
+<router-outlet></router-outlet>
+
+<p>Account Holder With Bank BAlance Greater than 20k</p>
+<table>
+    <thead>
+        <tr>
+            <th>Account Number</th>
+            <th>Account Holder Name</th>
+            <th>Account Type</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (accountHolder of accountHolders; track accountHolder){
+            <tr>
+                @if (accountHolder.amount>20000){
+                <td>{{accountHolder.accountNumber}}</td>
+                <td>{{accountHolder.accountHolderName}}</td>
+                <td>{{accountHolder.accountType}}</td>
+                <td>{{accountHolder.amount}}</td>
+                <td>{{accountHolder.date}}</td>
+                <td>@switch(getStatus(accountHolder.amount)){
+                        @case("Loyal"){Loyal}  
+                        @case("Active"){Active}
+                        @case("Inactive"){Inactive}
+                        @default{Dead}
+                }
+                </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+<br>
+<br>
+<br>
+<br>
+<br>
+Choose Account Category : <select [(ngModel)]="accountCategory">
+    <option>savingsAccount</option>
+    <option >currentAccount</option>
+    <option >salaryAccount</option>
+</select>
+
+<table>
+    <thead>
+        <tr>
+            <th>Account Number</th>
+            <th>Account Holder Name</th>
+            <th>Account Type</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (accountHolder of accountHolders; track accountHolder){
+            <tr>
+                @if (accountHolder.accountType==accountCategory){
+                <td>{{accountHolder.accountNumber}}</td>
+                <td>{{accountHolder.accountHolderName}}</td>
+                <td>{{accountHolder.accountType}}</td>
+                <td>{{accountHolder.amount}}</td>
+                <td>{{accountHolder.date}}</td>
+                <td>@switch(getStatus(accountHolder.amount)){
+                    @case("Loyal"){Loyal}  
+                    @case("Active"){Active}
+                    @case("Inactive"){Inactive}
+                    @default{Dead}
+                }
+                </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+

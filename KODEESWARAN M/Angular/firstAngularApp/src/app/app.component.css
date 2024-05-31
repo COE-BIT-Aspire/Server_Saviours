@@ -1,0 +1,35 @@
+h1{
+    text-align: center;
+}
+.menu-container{
+    display: flex;
+    border: 2px solid blueviolet;
+    background-color: blueviolet;
+    
+}
+.component{
+    padding: 8px;
+    
+}
+.component:hover{
+    background-color: rgb(138, 43, 246);
+    font-size: 1.05rem;
+    color: blanchedalmond;
+    
+}
+
+
+a{
+    text-decoration: none;
+    color: white;
+    font-weight: 900;
+   
+}
+
+.container{
+    padding: 20px;
+    border: 2px solid blueviolet;
+    background-color: antiquewhite;
+    height: 1250px;
+}
+
