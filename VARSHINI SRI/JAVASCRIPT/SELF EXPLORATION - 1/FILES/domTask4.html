@@ -1,0 +1,10 @@
+<button onclick="add()">Add Hello</button>
+<div id="container"></div>
+<script>
+    var divTag = document.getElementById("container");
+    function add(){
+        var newElement = document.createElement("h1");
+        newElement.textContent = "Hello";
+        divTag.append(newElement);
+    }
+</script>
