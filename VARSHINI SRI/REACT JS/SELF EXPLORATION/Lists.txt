@@ -1,0 +1,105 @@
+1) App.js :
+
+a)
+
+import './App.css';
+
+function App() {
+  const names = ["Varshini", "Saraswathi", "Anitha", "Silpa", "Savitha"];
+  return (
+    <div className="App">
+      {names.map((name, key)=>{
+        return <h1>{name}</h1>;
+      })}
+    </div>
+  );
+}
+
+export default App;
+
+b)
+
+import './App.css';
+
+function App() {
+  const users = [
+    {name : "Varshini", age : 22},
+    {name : "Abinaya", age : 20}
+  ];
+  return (
+    <div className="App">
+      {users.map((user, key)=>{
+        return <div>
+          {user.name}
+          {user.age}
+        </div>;
+      })}
+    </div>
+  );
+}
+
+export default App;
+
+c)
+
+import './App.css';
+import {User} from './User';
+
+function App() {
+  const users = [
+    {name : "Varshini", age : 22},
+    {name : "Abinaya", age : 20}
+  ];
+  return (
+    <div className="App">
+      {users.map((user, key)=>{
+        return <User name = {user.name} age = {user.age}/>;
+      })}
+    </div>
+  );
+}
+
+export default App;
+
+
+User.js :
+
+export const User = (props) =>{
+    return (
+      <div>{props.name}{props.age}</div>
+    );
+}
+
+d) Task :
+
+import './App.css';
+import {User} from './User';
+import { Planet } from './Planet';
+
+function App() {
+  const planets = [
+    {name : "Mars", isGasPlanet : false},
+    {name : "Earth", isGasPlanet : false},
+    {name : "Jupiter", isGasPlanet : true},
+    {name : "Venus", isGasPlanet : false},
+    {name : "Neptune", isGasPlanet : true},
+    {name : "Uranus", isGasPlanet : true}
+  ];
+  return (
+    <div className="App">
+      {planets.map((planet, key)=>planet.isGasPlanet && <h1>{planet.name}</h1>
+      )}
+    </div>
+  );
+}
+
+export default App;
+
+
+Planet.js :
+
+export const Planet = (props) =>{
+    return (
+      <div>{props.name}{props.isGasPlanet}</div>
+    );
+}

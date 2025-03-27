@@ -1,0 +1,310 @@
+                                                                           Hooks
+
+1) Basic Hooks:
+
+-> useState() ------
+-> useEffect() ------
+-> useContext() ------
+
+2) Additional Hooks:
+
+-> useReducer() ------
+-> useCallback() ------ 
+-> useMemo() ------  
+-> useRef() ------ 
+-> useImperativeHandle() ------ 
+-> useLayoutEffect() ------ 
+-> useDebugValue()
+
+3) useReducer():
+
+-> Replacement or alternative to useState().
+
+4) useReducer():
+
+a) ReducerDemo.js:
+
+import React, { useReducer } from "react";
+
+const reducer = (state, action) => {
+
+switch (action.type){
+
+case "Increment":
+     return {count: state.count + 1, showText: state.showText};
+case "Toggle":
+     return {count: state.count, showText: !state.showText};
+default:
+     return state;
+
+}
+
+}
+
+
+const ReducerDemo = () => {
+
+const[state, dispatch] = useReducer(reducer, {count: 0, showText: true});
+
+return (
+
+<div>
+ <h1> {state.count} </h1>
+ <button onClick = {() => {
+  dispatch({ type: "Increment" });
+  dispatch({ type: "Toggle" });
+}}>Click Here </button>
+
+
+{state.showText && <p>This is a text</p>}
+</div>
+
+)
+
+}
+
+5) useRef():
+
+a) RefDemo.js:
+
+import React, { useRef } from "react";
+
+function RefDemo(){
+
+const inputRef = useRef(null);
+
+const onClick = () => {
+
+// inputRef.current.focus();
+inputRef.current.value = "";
+
+}
+
+return (
+
+<div>
+ <h1>Varshini</h1>
+ <input type = "text" placeholder = "Ex..." ref = {inputRef}/>
+ <button onClick = {onClick}>Change Name</button>
+</div>
+
+);
+
+}
+
+export default RefDemo;
+
+6) useLayoutEffect():
+
+a) LayoutEffectDemo.js:
+
+import { useLayoutEffect, useEffect, useRef } from "react";
+
+function LayoutEffectDemo(){
+
+const inputRef = useRef(null);
+
+useLayoutEffect(()=>{
+
+console.log(inputRef.current.value);
+
+}, []);
+
+useEffect(()=>{
+
+inputRef.current.value = "Hello";
+
+}, []);
+
+return(
+
+<div className = "App">
+ <input ref = {inputRef} value = "Varshini" style = {{ width: 400, height: 300}}/>
+</div>
+
+)
+
+}
+
+export default LayoutEffectDemo; 
+
+7) useImperativeHandle():
+
+a) ImperativeHandleDemo.js:
+
+import React, { useRef } from "react";
+import Button from "./Button";
+
+function ImperativeHandleDemo(){
+
+const buttonRef = useRef(null);
+
+return(
+
+<div>
+ <button onClick = {()=>{
+
+buttonRef.current.alterToggle();
+
+}}>Button From Parent</button>
+ <Button ref = {buttonRef}/>
+</div>
+
+)
+
+}
+
+export default ImperativeHandleDemo;
+
+b) Button.js:
+
+import React, { forwardRef, useImperativeHandle, useState } from "react";
+
+const Button = forwardRef((props, ref) =>{
+
+const [toggle, setToggle] = useState(false);
+
+useImperativeHandle(ref, ()=>({
+
+alterToggle(){
+
+setToggle(!toggle);
+
+}
+
+}))
+
+return(
+
+<>
+ <button>Button From Child</button>
+ {toggle && <span>Toggle</span>}
+</>
+
+)
+
+})
+
+export default Button;
+
+8) useMemo():
+
+a) MemoDemo.js:
+
+import axios from "axios";
+import { useEffect, useState, useMemo } from "react";
+
+export default function MemoDemo(){
+
+const [data, setData] = useState(null);
+const [toggle, setToggle] = useState(false);
+
+useEffect(()=>{
+
+axios.get("https://jsonplaceholder.typicode.com/comments").then((response)=>{
+
+setData(response.data);
+
+})
+
+}, []);
+
+const findLongestName = (comments)=>{
+
+if(!comments) return null;
+
+let longestName = "";
+
+for(let i=0; i<comments.length; i++){
+
+let currentName = comments[i].name;
+
+if(currentName.length > longestName.length){
+
+longestName = currentName;
+
+}
+
+}
+
+console.log("THIS WAS COMPUTED");
+
+return longestName;
+
+}
+
+const getLongestName = useMemo(()=> findLongestName(data), [data]);
+return (
+
+<div className = "App">
+
+ <div>{getLongestName}</div>
+
+<button onClick ={()=>{
+
+setToggle(!toggle);
+
+}}>Toggle</button>
+
+{toggle && <h1>toggle</h1>
+</div>
+)
+
+}
+
+9) useCallback():
+
+a) CallbackDemo.js:
+
+import axios from "axios";
+import {useState, useCallback} from "react";
+import Child from "./Child";
+
+export default function callbackDemo(){
+
+const [toggle, setToggle] = useState(false);
+const [data, setData] = useState("Yo, pls sub to the channel!");
+
+const returnComment = useCallback((name)=>{
+
+return data + name;
+
+}, [data])
+
+return(
+
+<div className = "App">
+ <Child returnComment = {returnComment}/>
+
+ <button onClick = {()=>{
+
+setToggle(!toggle);
+
+}}>
+ Toggle
+ </button>
+
+{toggle && <h1>toggle</h1>}
+</div>
+
+)
+
+} 
+
+b) Child.js:
+
+import React, {useEffect} from "react";
+
+function Child({returnComment}){
+
+useEffect(()=>{
+
+console.log("FUNCTION WAS CALLED");
+
+}, [returnComment]);
+
+return <div>{returnComment("Varshini")}</div>
+
+}
+
+export default Child;
