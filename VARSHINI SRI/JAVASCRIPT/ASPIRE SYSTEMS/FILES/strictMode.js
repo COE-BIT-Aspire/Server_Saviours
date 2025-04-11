@@ -1,3 +1,0 @@
-"use strict";
-function Person(name) { this.name = name; }
-let ferdinand = Person("Ferdinand"); // Another change in strict mode is that the this binding holds the value undefined in functions that are not called as methods. When making such a call outside of strict mode, this refers to the global scope object, which is an object whose properties are the global bindings. So if you accidentally call a method or constructor incorrectly in strict mode, JavaScript will produce an error as soon as it tries to read something from this, rather than happily writing to the global scope.
