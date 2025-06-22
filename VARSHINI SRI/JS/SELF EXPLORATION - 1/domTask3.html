@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="DOM">
+        <title>DOM</title>
+    </head>
+
+    <body>
+        <input id="inputBox" onkeyup="change()">
+        <h1 id="result"></h1>
+        <script>
+            var inputVal = document.getElementById("inputBox");
+            var heading = document.getElementById("result");
+            function change(){
+                heading.textContent = inputVal.value;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="DOM">
+        <title>DOM</title>
+    </head>
+
+    <body>
+        <input id="num1">
+        <input id="num2">
+        <button onclick="add()">Add</button>
+        <p id="result"></p>
+        <script>
+            var input1 = document.getElementById("num1");
+            var input2 = document.getElementById("num2");
+            var para = document.getElementById("result");
+            function add(){
+                var total = Number(input1.value) + Number(input2.value);
+                para.textContent = total;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="DOM">
+        <title>DOM</title>
+    </head>
+
+    <body>
+        <button onclick="add()">Add Hello</button>
+        <div id="container"></div>
+        <script>
+            var divTag = document.getElementById("container");
+            function add(){
+                var newTag = document.createElement("h1");
+                newTag.textContent = "Hello";
+                divTag.append(newTag);
+            }
+        </script>
+    </body>
+</html>

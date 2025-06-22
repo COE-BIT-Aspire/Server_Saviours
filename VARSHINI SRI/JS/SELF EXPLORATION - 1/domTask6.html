@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="DOM">
+        <title>DOM</title>
+    </head>
+
+    <body>
+        <h1 id="one"></h1>
+        <button onclick="change(event)">John</button>
+        <button onclick="change(event)">Hari</button>
+        <button onclick="change(event)">Praveen</button>
+        <script>
+            function change(event){
+                var heading = document.getElementById("one");
+                heading.textContent = event.target.textContent;
+            }
+        </script>
+    </body>
+</html>
