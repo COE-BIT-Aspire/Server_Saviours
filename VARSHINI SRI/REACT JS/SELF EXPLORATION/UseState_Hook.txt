@@ -1,0 +1,116 @@
+1) To Use States, 
+
+   import {useState} from "react";
+
+2) App.js :
+
+a)
+
+import './App.css';
+import {useState} from 'react'
+
+function App() {
+  const [age, setAge] = useState(0);
+  const increaseAge = () =>{
+    setAge(age+1);
+  }
+
+  return (
+    <div className="App">
+      {age}
+      <button onClick = {increaseAge}>Increase Age</button>
+    </div>
+  );
+}
+
+export default App;
+
+b)
+
+import './App.css';
+import {useState} from 'react'
+
+function App() {
+  const[inputValue, setInputValue] = useState("");
+  const handleInputChange = (event) =>{
+    setInputValue(event.target.value);
+  }
+
+  return (
+    <div className="App">
+      {inputValue}
+      <input type = "text" onChange = {handleInputChange}/>
+    </div>
+  );
+}
+
+export default App;
+
+c)
+
+import './App.css';
+import {useState} from 'react'
+
+function App() {
+  const [showText, setShowText] = useState(true);
+
+  return (
+    <div className="App">
+      <button onClick = {()=>{
+        setShowText(!showText)
+      }}>Show/Hide</button>
+      {showText && <h1>HI MY NAME IS VARSHINI</h1>}
+    </div>
+  );
+}
+
+export default App;
+
+d)
+
+import './App.css';
+import {useState} from 'react'
+
+function App() {
+  const [textColor, setTextColor] = useState("black");
+
+  return (
+    <div className="App">
+      <button onClick = {()=>{
+        setTextColor(textColor === "black" ? "red" : "black")
+      }}>Show/Hide</button>
+      <h1 style = {{color : textColor}}>HI MY NAME IS VARSHINI</h1>
+    </div>
+  );
+}
+
+export default App;
+
+e) Task :
+
+import './App.css';
+import {useState} from 'react'
+
+function App() {
+  const [count, setCount] = useState(0);
+  const Increase = () =>{
+    setCount(count+1);
+  }
+  const Decrease = () =>{
+    setCount(count-1);
+  }
+  const Zero = () =>{
+    setCount(0);
+  }
+
+  return (
+    <div className="App">
+      {count}
+      <button onClick = {Increase}>Increase</button>
+      <button onClick = {Decrease}>Decrease</button>
+      <button onClick = {Zero}>Set To Zero</button>
+    </div>
+  );
+}
+
+export default App;

@@ -1,0 +1,92 @@
+1) React Query : (<React.StrictMode></React.StrictMode> - Present).
+
+2) 
+
+a) App.js :
+
+import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Home } from './pages/Home';
+import {Menu} from './pages/Menu';
+import {Contact} from './pages/Contact';
+import { Navbar } from './Navbar';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+function App() {
+  const client = new QueryClient({
+    defaultOptions: {
+      queries:{
+        refetchOnWindowFocus: false
+      }
+    }
+  });
+  return (
+    <div className="App">
+      <QueryClientProvider client = {client}>
+      <Router>
+        <Navbar/>
+        <Routes>
+          <Route path = "/" element = {<Home/>}></Route>
+          <Route path = "/menu" element = {<Menu/>}></Route>
+          <Route path = "/contact" element = {<Contact/>}></Route>
+        </Routes>
+      </Router>
+      </QueryClientProvider>
+    </div>
+  );
+}
+
+export default App;
+
+b) Navbar.js :
+
+import { Link } from "react-router-dom";
+export const Navbar = () =>{
+    return (
+      <div>
+        <Link to = "/">Home</Link>
+        <Link to = "/menu">Menu</Link>
+        <Link to = "/contact">Contact</Link>
+      </div>
+    )
+}
+
+c) Home.js :
+
+import { useQuery } from 'react-query';  
+import axios from 'axios';  
+
+export const Home = () => {
+    const { data, isLoading, refetch } = useQuery(["cat"], () => {
+        return axios.get("https://catfact.ninja/fact").then((res) => res.data);
+    });
+
+    if (isLoading) {
+        return <h1>Loading...</h1>;
+    }
+
+    return (
+        <h1>
+            This is the home page 
+            <p>{data?.fact}</p>
+            <button onClick = {refetch}>Update Data</button>
+        </h1>
+    );
+};
+
+d) Menu.js :
+
+export const Menu = () =>{
+    return <h1>THIS IS THE MENU PAGE</h1>
+}
+
+e) Contact.js :
+
+export const Contact = () =>{
+    return <h1>THIS IS THE CONTACT PAGE</h1>
+}
+
+5) CRUD:
+
+-> Create, Update, Delete - Mutations
+-> Read - Queries
