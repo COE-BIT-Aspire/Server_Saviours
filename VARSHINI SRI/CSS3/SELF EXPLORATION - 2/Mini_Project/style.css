@@ -1,0 +1,47 @@
+nav{
+    background-color: black;
+    padding: 20px;
+}
+
+h1{
+    color: white;
+    display: inline;
+}
+
+p{
+    color: gray;
+    display: inline;
+}
+
+.one{
+    margin-left: 60%;
+}
+
+p:hover{
+    color: white;
+    cursor: pointer;
+}
+
+input{
+    width: 60%;
+    padding: 20px;
+    margin: 50px;
+}
+
+img{
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    display: inline-block;
+    margin-top: 1%;
+}
+
+.two{
+    margin-left: 10%;
+}
+
+footer{
+    background-color: black;
+    text-align: center;
+    padding: 20px;
+}
