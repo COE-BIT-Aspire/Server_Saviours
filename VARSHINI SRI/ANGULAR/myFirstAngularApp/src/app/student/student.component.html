@@ -1,0 +1,22 @@
+Student Name: {{studentName}}<br> <!--Interpolation Binding-->
+Student Mark: {{studentMark}}<br>
+Student DOJ: {{joinDate}}<br>
+
+<button (click) = "displayMessage()">Click Here</button> <!--Event Binding-->
+
+<h1 [style.color] = "fontColor">This is style binding</h1> <!--Style Binding-->
+
+<input type="email" [value]="email"> <!--Property Binding-->
+
+<table>
+    <tr>
+        <td [attr.colspan]="colspans"></td> <!--Attribute Binding-->
+    </tr>
+</table>
+<textarea placeholder="{{messagePlaceholder}}"></textarea><br> <!--Attribute Binding-->
+
+<textarea [placeholder]="messagePlaceholder"></textarea> <!--Property Binding-->
+
+<p [class]="'changeColor changeFontsize'">Aspire Systems</p> <!--Class Binding-->
+<p [class.changeBackground]="colorChanged">Aspirian</p> <!--Class Binding-->
+<button (click)="changeBackground()">Change BgColor</button>

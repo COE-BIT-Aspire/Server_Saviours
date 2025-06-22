@@ -1,0 +1,38 @@
+<p>account works!</p>
+Choose Account Category: <select [(ngModel)] = "categoryInput">
+    <option>SavingsACC</option>
+    <option>SalaryACC</option>
+    <option>BusinessACC</option>
+</select>
+<table>
+    <thead>
+        <tr>
+            <th>Account Number</th>
+            <th>AccountHolder Name</th>
+            <th>Type Of Account</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (accountHolder of accounts; track accountHolder){
+            <tr>
+                @if (accountHolder.typeOfAccount==categoryInput){
+                <td>{{accountHolder.accountNumber}}</td>
+                <td>{{accountHolder.accountHolderName}}</td>
+                <td>{{accountHolder.typeOfAccount}}</td>
+                <td>{{accountHolder.amount}}</td>
+                <td>{{accountHolder.date}}</td>
+                <td>@switch(getStatus(accountHolder.amount)){
+                    @case("Loyal"){Loyal}  
+                    @case("Active"){Active}
+                    @case("Inactive"){Inactive}
+                    @default{Account Closed}
+                }
+                </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

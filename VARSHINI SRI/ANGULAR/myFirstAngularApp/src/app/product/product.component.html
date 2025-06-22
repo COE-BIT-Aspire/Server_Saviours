@@ -1,0 +1,30 @@
+<div class="ekart--search--product">
+    <input class="ekart-search-product-input" [(ngModel)]="search">
+    <button [ngClass]="{'btn':true, 'btn-search':search, 'btn-search-disabled':!search}" [disabled]="!search">Search</button>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Cost</th>
+            <th>Category</th>
+            <th>Availability</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @for (product of products; track product){
+            <tr>
+                <td>{{product.productId}}</td>
+                <td>{{product.productName}}</td>
+                <td>{{product.cost}}</td>
+                <td>{{product.category}}</td>
+                <td [ngStyle]="{color:product.Availability?'Green':'Red'}">
+                    {{product.Availability?'Available in stock':'Not available in stock'}}
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

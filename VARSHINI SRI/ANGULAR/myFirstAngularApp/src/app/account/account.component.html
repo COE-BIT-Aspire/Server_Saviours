@@ -1,0 +1,27 @@
+<p>account works!</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Account Number</th>
+            <th>AccountHolder Name</th>
+            <th>Type Of Account</th>
+            <th>Amount</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @for(accountHolder of accounts; track accountHolder){
+            <tr>
+                @if(accountHolder.amount > 20000){
+                    <td>{{accountHolder.accountNumber}}</td>
+                    <td>{{accountHolder.accountHolderName}}</td>
+                    <td>{{accountHolder.typeOfAccount}}</td>
+                    <td>{{accountHolder.amount}}</td> 
+                    <td>{{accountHolder.date}}</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
