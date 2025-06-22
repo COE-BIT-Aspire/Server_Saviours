@@ -1,0 +1,25 @@
+SET SERVEROUTPUT ON;
+
+DECLARE
+   v_num NUMBER(10) := &enter_a_number;
+BEGIN
+   IF MOD(v_num, 2) = 0 THEN
+      DBMS_OUTPUT.PUT_LINE('EVEN NUMBER');
+   ELSE
+      DBMS_OUTPUT.PUT_LINE('ODD NUMBER');
+   END IF;
+      DBMS_OUTPUT.PUT_LINE('IF ELSE CONSTRUCT COMPLETED');
+END;
+/
+
+DECLARE
+   v_company VARCHAR2(100) := '&enter_ur_company';
+BEGIN
+   IF v_company = 'Aspire Systems' THEN
+      DBMS_OUTPUT.PUT_LINE('ASPIRIAN');
+   ELSE
+      DBMS_OUTPUT.PUT_LINE('NON ASPIRIAN');
+   END IF;
+      DBMS_OUTPUT.PUT_LINE('IF ELSE CONSTRUCT COMPLETED');
+END;
+/
